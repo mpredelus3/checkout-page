@@ -8,9 +8,8 @@
     <script defer src="script.js"></script>
 </head>
 <body>
-    <!-- Navigation Bar -->
     <nav>
-        <img src="placeholder-logo.png" alt="Company Logo" id="company-logo"> <!-- Placeholder for the logo -->
+        <img src="placeholder-logo.png" alt="Company Logo" id="company-logo"> <!-- Placeholder for logo -->
         <div class="nav-right">
             <a href="#" id="support-link">Support</a>
             <div id="language-dropdown">English &#9660;</div>
@@ -20,16 +19,89 @@
     <!-- Main Container -->
     <div id="main-container">
         <!-- Content Area for Pages -->
-        <div id="content-area"></div>
+        <div id="content-area">
+            <!-- Page 1: Number Of Users -->
+            <div id="NumOfUsers" class="page">
+                <h2>Ember Professional</h2>
+                <p>Select the number of users</p>
+                <div class="user-selection">
+                    <button id="minus-btn">-</button>
+                    <span id="user-count">1</span>
+                    <button id="plus-btn">+</button>
+                </div>
+                <p>Select a subscription cycle</p>
+                <div class="subscription-options">
+                    <div class="option" id="monthly">
+                        <p>Monthly</p>
+                        <p>$18.99/month/user, billed monthly</p>
+                    </div>
+                    <div class="option" id="annually">
+                        <p>Annually</p>
+                        <p>$14.99/month/user, $179.88 billed annually</p>
+                    </div>
+                </div>
+                <button id="continue-btn" class="nav-btn">Continue</button>
+            </div>
+
+            <!-- Placeholder for other pages with "Back" and "Continue" buttons -->
+            <div id="Usage" class="page" style="display: none;">
+                <h2>Usage</h2>
+                <button id="back-btn" class="nav-btn">Back</button>
+                <button id="continue-btn" class="nav-btn">Continue</button>
+            </div>
+
+            <div id="Phones" class="page" style="display: none;">
+                <h2>Phones</h2>
+                <button id="back-btn" class="nav-btn">Back</button>
+                <button id="continue-btn" class="nav-btn">Continue</button>
+            </div>
+
+            <div id="PhoneNumbers" class="page" style="display: none;">
+                <h2>Phone Numbers</h2>
+                <button id="back-btn" class="nav-btn">Back</button>
+                <button id="continue-btn" class="nav-btn">Continue</button>
+            </div>
+
+            <div id="DomVerification" class="page" style="display: none;">
+                <h2>Domain Verification</h2>
+                <button id="back-btn" class="nav-btn">Back</button>
+                <button id="continue-btn" class="nav-btn">Continue</button>
+            </div>
+
+            <div id="CheckoutSignUp" class="page" style="display: none;">
+                <h2>Checkout Sign Up</h2>
+                <button id="back-btn" class="nav-btn">Back</button>
+                <button id="continue-btn" class="nav-btn">Continue</button>
+            </div>
+
+            <div id="CheckoutShipInfo" class="page" style="display: none;">
+                <h2>Checkout Shipping Information</h2>
+                <button id="back-btn" class="nav-btn">Back</button>
+                <button id="continue-btn" class="nav-btn">Continue</button>
+            </div>
+
+            <div id="CheckoutTerms" class="page" style="display: none;">
+                <h2>Checkout Terms</h2>
+                <button id="back-btn" class="nav-btn">Back</button>
+                <button id="continue-btn" class="nav-btn">Continue</button>
+            </div>
+
+            <div id="CheckoutPay" class="page" style="display: none;">
+                <h2>Checkout Payment Details</h2>
+                <button id="back-btn" class="nav-btn">Back</button>
+                <button id="continue-btn" class="nav-btn">Finish</button>
+            </div>
+        </div>
 
         <!-- Order Summary -->
         <aside id="order-summary">
             <h3>Order Summary</h3>
             <div id="order-details">
-                <!-- Example Content; Update Dynamically with JavaScript -->
+                <!-- Placeholder for order summary -->
                 <p>1 Item(s)</p>
                 <p>Ember Professional</p>
-                <!-- Add more order details here -->
+                <p>Users (1) x $14.99 x 12 months</p>
+                <p id="total">$179.88</p>
             </div>
             <button id="pay-now" disabled>Pay Now</button>
         </aside>

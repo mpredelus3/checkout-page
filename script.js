@@ -1,29 +1,46 @@
-// Store the IDs of the pages to be loaded
+// Array of page IDs in the order they should be displayed
 const pages = ['NumOfUsers', 'Usage', 'Phones', 'PhoneNumbers', 'DomVerification', 'CheckoutSignUp', 'CheckoutShipInfo', 'CheckoutTerms', 'CheckoutPay'];
 
-// Track the current page index
+
 let currentPageIndex = 0;
-
-// Get the content area element
-const contentArea = document.getElementById('content-area');
-
-// Initialize the first page
 loadPage(pages[currentPageIndex]);
 
-// Function to load a page into the content area
+// Function to load a specific page
 function loadPage(pageId) {
-    contentArea.innerHTML = `
-        <div id="${pageId}">
-            <h2>${pageId} Page</h2>
-            <button id="back-btn" ${currentPageIndex === 0 ? 'disabled' : ''}>Back</button>
-            <button id="continue-btn">${currentPageIndex === pages.length - 1 ? 'Finish' : 'Continue'}</button>
-        </div>
-    `;
 
-    // Add event listeners for buttons
-    document.getElementById('back-btn').addEventListener('click', goBack);
-    document.getElementById('continue-btn').addEventListener('click', goNext);
+    document.querySelectorAll('.page').forEach(page => {
+        page.style.display = 'none';
+    });
+
+    document.getElementById(pageId).style.display = 'block';
+ 
+    updateNavButtons();
 }
+
+// Function to update the "Back" and "Continue" button states
+function updateNavButtons() {
+    
+    const currentPage = document.getElementById(pages[currentPageIndex]);
+    const backButton = currentPage.querySelector('#back-btn');
+    if (backButton) {
+        backButton.style.display = currentPageIndex === 0 ? 'none' : 'inline-block';
+    }
+    const continueButton = currentPage.querySelector('#continue-btn');
+    if (continueButton) {
+        continueButton.textContent = currentPageIndex === pages.length - 1 ? 'Finish' : 'Continue';
+    }
+}
+
+// Event delegation to handle "Back" and "Continue" button clicks
+document.getElementById('content-area').addEventListener('click', (event) => {
+    if (event.target.classList.contains('nav-btn')) {
+        if (event.target.id === 'continue-btn') {
+            goNext();
+        } else if (event.target.id === 'back-btn') {
+            goBack();
+        }
+    }
+});
 
 // Function to go to the next page
 function goNext() {
@@ -32,7 +49,7 @@ function goNext() {
         loadPage(pages[currentPageIndex]);
     }
 
-    // Enable 'Pay Now' button on the last page
+    
     if (currentPageIndex === pages.length - 1) {
         document.getElementById('pay-now').disabled = false;
     }
@@ -45,6 +62,8 @@ function goBack() {
         loadPage(pages[currentPageIndex]);
 
         // Disable 'Pay Now' button if not on the last page
-        document.getElementById('pay-now').disabled = true;
+        if (currentPageIndex !== pages.length - 1) {
+            document.getElementById('pay-now').disabled = true;
+        }
     }
 }
