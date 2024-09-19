@@ -74,5 +74,15 @@ document.getElementById('minus-btn').addEventListener('click', () => {
 
 function updateUserCount() {
     document.getElementById('user-count').textContent = userCount;
-    // Optionally update the order summary here if needed
+}
+
+// Event listener for the pooled minutes input on the Usage page
+document.getElementById('content-area').addEventListener('input', (event) => {
+    if (event.target.id === 'minutes-input') {
+        updatePooledMinutes(event.target.value);
+    }
+});
+
+function updatePooledMinutes(minutes) {
+    console.log(`Pooled minutes updated to: ${minutes}`);
 }

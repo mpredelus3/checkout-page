@@ -9,7 +9,7 @@
 </head>
 <body>
     <nav>
-        <img src="placeholder-logo.png" alt="Company Logo" id="company-logo"> <!-- Placeholder for logo -->
+        <img src="placeholder-logo.png" alt="Company Logo" id="company-logo">
         <div class="nav-right">
             <a href="#" id="support-link">Support</a>
             <div id="language-dropdown">English &#9660;</div>
@@ -43,53 +43,91 @@
                 <button id="continue-btn" class="nav-btn">Continue</button>
             </div>
 
-            <!-- Placeholder for other pages with "Back" and "Continue" buttons -->
+            <!-- Page 2: Usage -->
             <div id="Usage" class="page" style="display: none;">
                 <h2>Usage</h2>
+                <p>Number of pooled minutes per month</p>
+                <div class="pooled-minutes">
+                    <input type="number" id="minutes-input" value="1000" min="0" step="100" />
+                </div>
+                <p>The pool of minutes is refreshed each month and used across all users. Overage charges apply when you have exceeded your monthly allocation.</p>
                 <button id="back-btn" class="nav-btn">Back</button>
                 <button id="continue-btn" class="nav-btn">Continue</button>
             </div>
 
+            <!-- Page 3: Phones -->
             <div id="Phones" class="page" style="display: none;">
                 <h2>Phones</h2>
+                <p>How many phone numbers do you need?</p>
+                <div class="phone-options">
+                    <button class="phone-option-btn">Buy a New Number</button>
+                    <button class="phone-option-btn">Transfer Existing Number</button>
+                </div>
                 <button id="back-btn" class="nav-btn">Back</button>
                 <button id="continue-btn" class="nav-btn">Continue</button>
             </div>
 
+            <!-- Page 4: Phone Numbers -->
             <div id="PhoneNumbers" class="page" style="display: none;">
                 <h2>Phone Numbers</h2>
+                <p>Select the phone number(s) you wish to use.</p>
+                <input type="text" id="phone-number-input" placeholder="Enter or select phone number">
+                <button id="add-number-btn">Add Number</button>
                 <button id="back-btn" class="nav-btn">Back</button>
                 <button id="continue-btn" class="nav-btn">Continue</button>
             </div>
 
+            <!-- Page 5: Domain Verification -->
             <div id="DomVerification" class="page" style="display: none;">
                 <h2>Domain Verification</h2>
+                <p>Create Your Domain:</p>
+                <input type="text" id="domain-input" placeholder="yourdomain.embervoip.us">
                 <button id="back-btn" class="nav-btn">Back</button>
                 <button id="continue-btn" class="nav-btn">Continue</button>
             </div>
 
+            <!-- Page 6: Checkout Sign Up -->
             <div id="CheckoutSignUp" class="page" style="display: none;">
                 <h2>Checkout Sign Up</h2>
+                <p>Sign up for your account.</p>
+                <input type="text" id="first-name" placeholder="First Name">
+                <input type="text" id="last-name" placeholder="Last Name">
                 <button id="back-btn" class="nav-btn">Back</button>
                 <button id="continue-btn" class="nav-btn">Continue</button>
             </div>
 
+            <!-- Page 7: Checkout Shipping Information -->
             <div id="CheckoutShipInfo" class="page" style="display: none;">
-                <h2>Checkout Shipping Information</h2>
+                <h2>Shipping Information</h2>
+                <input type="text" id="street-number" placeholder="Street Number">
+                <input type="text" id="street-address" placeholder="Street Address">
+                <input type="text" id="address-line-2" placeholder="Address Line 2">
+                <input type="text" id="city" placeholder="City">
+                <input type="text" id="zip-code" placeholder="Zip Code">
                 <button id="back-btn" class="nav-btn">Back</button>
                 <button id="continue-btn" class="nav-btn">Continue</button>
             </div>
 
+            <!-- Page 8: Checkout Terms -->
             <div id="CheckoutTerms" class="page" style="display: none;">
-                <h2>Checkout Terms</h2>
+                <h2>Terms and Conditions</h2>
+                <p>Please review and accept our terms and conditions.</p>
+                <button id="view-terms-btn">View Terms and Conditions</button>
+                <input type="checkbox" id="accept-terms"> I accept the terms and conditions.
                 <button id="back-btn" class="nav-btn">Back</button>
                 <button id="continue-btn" class="nav-btn">Continue</button>
             </div>
 
+            <!-- Page 9: Checkout Payment Details -->
             <div id="CheckoutPay" class="page" style="display: none;">
-                <h2>Checkout Payment Details</h2>
+                <h2>Payment Details</h2>
+                <input type="text" id="card-name" placeholder="Name on Card">
+                <input type="text" id="card-number" placeholder="Card Number">
+                <input type="text" id="expiry-month" placeholder="MM">
+                <input type="text" id="expiry-year" placeholder="YYYY">
+                <input type="text" id="cvv" placeholder="CVV">
                 <button id="back-btn" class="nav-btn">Back</button>
-                <button id="continue-btn" class="nav-btn">Finish</button>
+                <button id="finish-btn" class="nav-btn">Finish</button>
             </div>
         </div>
 
@@ -97,7 +135,6 @@
         <aside id="order-summary">
             <h3>Order Summary</h3>
             <div id="order-details">
-                <!-- Placeholder for order summary -->
                 <p>1 Item(s)</p>
                 <p>Ember Professional</p>
                 <p>Users (1) x $14.99 x 12 months</p>

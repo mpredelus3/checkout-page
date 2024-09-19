@@ -1,3 +1,4 @@
+/* Basic Reset */
 * {
     margin: 0;
     padding: 0;
@@ -5,9 +6,12 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
 }
 
+/* Navigation Bar */
 nav {
     width: 100%;
     background-color: #333;
@@ -31,8 +35,10 @@ nav {
     color: white;
     margin-left: 15px;
     cursor: pointer;
+    font-size: 14px;
 }
 
+/* Main Container */
 #main-container {
     display: flex;
     justify-content: space-between;
@@ -40,17 +46,23 @@ nav {
     margin: 20px auto;
 }
 
+/* Content Area */
 #content-area {
     width: 65%;
     min-height: 400px;
     border: 1px solid #ccc;
     padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Order Summary */
 #order-summary {
     width: 30%;
     padding: 20px;
     border: 1px solid #ccc;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 #pay-now {
@@ -60,6 +72,7 @@ nav {
     color: white;
     border: none;
     cursor: not-allowed;
+    font-size: 16px;
 }
 
 /* User Selection Counter */
@@ -92,4 +105,70 @@ nav {
     text-align: center;
     font-size: 16px;
     background-color: #fff;
+}
+
+/* Page Styles */
+.page input[type="text"], .page input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Phone Options */
+.phone-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.phone-option-btn {
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.phone-option-btn:hover {
+    background-color: #e0e0e0;
+}
+
+/* Buttons */
+button.nav-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px 5px 0 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button.nav-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Disabled Button Styling */
+button[disabled] {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Order Summary */
+#order-summary h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+#order-summary p {
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #666;
 }
