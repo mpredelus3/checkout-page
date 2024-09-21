@@ -19,73 +19,350 @@
 
     <!-- Main Container -->
     <div id="main-container">
+        <h1 id="products-heading">Your Products</h1>
         <!-- Flex Container for Products and Order Summary -->
         <div id="products-summary-container">
             <!-- Content Area for Pages (Your Products Section) -->
             <div id="content-area">
-                <!-- Page 1: Number Of Users -->
-                <div id="NumOfUsers" class="page">
-                    <h2>Ember Professional</h2>
-                    <p>Select the number of users</p>
-                    <div class="user-selection">
-                        <button id="minus-btn">-</button>
-                        <span id="user-count">1</span>
-                        <button id="plus-btn">+</button>
-                    </div>
-                    <p>Select a subscription cycle</p>
-                    <div class="subscription-options">
-                        <div class="option" id="monthly">
-                            <p>Monthly</p>
-                            <p>$18.99/month/user, billed monthly</p>
-                        </div>
-                        <div class="option" id="annually">
-                            <p>Annually</p>
-                            <p>$14.99/month/user, $179.88 billed annually</p>
-                        </div>
-                    </div>
-                    <button id="continue-btn" class="nav-btn">Continue</button>
-                </div>
+<!-- Page 1: Number of Users -->
+<div id="NumOfUsers" class="page" style="display: block;">
+    <h2 class="page-title">
+        <img src="images/Ember_60X60.png" alt="Ember Icon" class="page-icon">
+        <span class="page-number">1. Number of Users</span> ---------------------------------------> Out of 6
+    </h2>
 
-                <!-- Page 2: Usage -->
-                <div id="Usage" class="page" style="display: none;">
-                    <h2>Usage</h2>
-                    <p>Number of pooled minutes per month</p>
-                    <div class="pooled-minutes">
-                        <input type="number" id="minutes-input" value="1000" min="0" step="100" />
-                    </div>
-                    <p>The pool of minutes is refreshed each month and used across all users. Overage charges apply when you have exceeded your monthly allocation.</p>
-                    <button id="back-btn" class="nav-btn">Back</button>
-                    <button id="continue-btn" class="nav-btn">Continue</button>
-                </div>
+    <div class="product-box">
+        <h3><img src="images/Ember_60X60.png" alt="Ember Icon" class="page-icon">
+            Ember Professional <span class="plan-details">Plan details</span></h3>
+        <p>Select the number of users</p>
+        <p class="subtext">The minimum amount is 1 user. Increase meeting capacity from 100 up to 1,000 participants with <span class="highlight">Large Meeting</span></p>
 
-                <!-- Page 3: Phones -->
-                <div id="Phones" class="page" style="display: none;">
-                    <h2>Phones</h2>
-                    <p>How many phone numbers do you need?</p>
-                    <div class="phone-options">
-                        <button class="phone-option-btn">Buy a New Number</button>
-                        <button class="phone-option-btn">Transfer Existing Number</button>
-                    </div>
-                    <button id="back-btn" class="nav-btn">Back</button>
-                    <button id="continue-btn" class="nav-btn">Continue</button>
-                </div>
+        <div class="user-selection">
+            <button id="minus-btn">-</button>
+            <span id="user-count">1</span>
+            <button id="plus-btn">+</button>
+        </div>
 
-                <!-- Additional pages omitted for brevity -->
-
+        <p>Select a subscription cycle</p>
+        <div class="subscription-options">
+            <div class="option disabled">
+                <p>Monthly</p>
+                <p><span class="price">$18.99</span><span class="small-text">/month/user, billed monthly</span></p>
             </div>
-
-            <!-- Order Summary Section -->
-            <aside id="order-summary">
-                <h3>Order Summary</h3>
-                <div id="order-details">
-                    <p>1 Item(s)</p>
-                    <p>Ember Professional</p>
-                    <p>Users (1) x $14.99 x 12 months</p>
-                    <p id="total">$179.88</p>
-                </div>
-                <button id="pay-now" disabled>Pay Now</button>
-            </aside>
+            <div class="option selected">
+                <p>Annually</p>
+                <p><span class="price">$14.99</span><span class="small-text">/month/user, $179.88 billed annually</span></p>
+            </div>
         </div>
     </div>
+
+    <!-- Back and Continue buttons -->
+    <button id="continue-btn" class="nav-btn">Continue</button>
+</div>
+
+<!-- Page 2: Usage -->
+<div id="Usage" class="page" style="display: none;">
+    <h2 class="page-title">
+        <img src="images/Ember_60X60.png" alt="Ember Icon" class="page-icon">
+        <span class="page-number">2. Usage</span> ---------------------------------------> Out of 6
+    </h2>
+
+    <div class="product-box">
+        <h3><img src="images/Ember_60X60.png" alt="Ember Icon" class="page-icon">
+            Ember Professional <span class="plan-details">Plan details</span></h3>
+        <p>Number of pooled minutes per month</p>
+        <p class="subtext">The pool of minutes is refreshed each month and used across all users. Overage charges apply when you have exceeded your monthly allocation. We recommend choosing a minutes pool size that meets your monthly call volume.</p>
+
+        <div class="user-selection">
+            <button id="minus-btn">-</button>
+            <span id="minutes-count">1</span>
+            <button id="plus-btn">+</button>
+        </div>
+    </div>
+
+    <!-- Back and Continue buttons -->
+    <button id="back-btn" class="nav-btn">Back</button>
+    <button id="continue-btn" class="nav-btn">Continue</button>
+</div>
+
+
+<!-- Page 3: Phones -->
+<div id="Phones" class="page" style="display: none;">
+    <h2 class="page-title">
+        <img src="images/Ember_60X60.png" alt="Ember Icon" class="page-icon">
+        <span class="page-number">3. Phones</span> ---------------------------------------> Out of 6
+    </h2>
+
+    <div class="product-box">
+        <h3><img src="images/Ember_60X60.png" alt="Ember Icon" class="page-icon">
+            Ember Professional <span class="plan-details">Plan details</span></h3>
+        <p>How Many Phone Numbers you need?</p>
+        <div class="user-selection">
+            <button id="minus-btn">-</button>
+            <span id="phone-count">1</span>
+            <button id="plus-btn">+</button>
+        </div>
+
+        <div class="number-option">
+            <label>
+                <input type="radio" name="number-type" value="new" checked>
+                <span>Buy A New Number</span>
+                <span class="orange-dot">•</span>
+            </label>
+            <a href="#" id="change-number-link">Change Numbers</a>
+        </div>
+
+        <div class="number-inputs">
+            <div class="number-input">
+                <label for="primary-number">Primary Number</label>
+                <input type="text" id="primary-number" value="">
+            </div>
+            <div class="number-input">
+                <label for="user-number">User Number</label>
+                <input type="text" id="user-number" value="">
+            </div>
+        </div>
+
+        <div class="number-option">
+            <label>
+                <input type="radio" name="number-type" value="transfer">
+                <span>Transfer Existing Number</span>
+                <span class="empty-dot">○</span>
+            </label>
+        </div>
+    </div>
+
+    <!-- Back and Continue buttons -->
+    <button id="back-btn" class="nav-btn">Back</button>
+    <button id="continue-btn" class="nav-btn">Continue</button>
+</div>
+
+
+<!-- Page 4: Phone Numbers -->
+<div id="PhoneNumbers" class="page" style="display: none;">
+    <h2 class="page-title">
+        <img src="images/Ember_60X60.png" alt="Ember Icon" class="page-icon">
+        <span class="page-number">4. Phone Numbers</span> ---------------------------------------> Out of 6
+    </h2>
+
+    <div class="product-box">
+        <h3><img src="images/Ember_60X60.png" alt="Ember Icon" class="page-icon">
+            Ember Professional <span class="plan-details">Plan details</span></h3>
+        <p>Choose from a wide variety of desktop, cordless, conference phones and other products after completing signup.</p>
+
+        <div class="phone-options">
+            <div class="phone-option">
+                <img src="path/to/desktop-icon.png" alt="Desktop Phone" class="phone-option-icon">
+                <h4>Desktop Web-app</h4>
+                <p>Your purchase may be subject to local taxes based on the billing information you provide.</p>
+            </div>
+
+            <div class="phone-option">
+                <img src="path/to/cordless-icon.png" alt="Cordless Phone" class="phone-option-icon">
+                <h4>Cordless Phone</h4>
+                <p>Your purchase may be subject to local taxes based on the billing information you provide.</p>
+            </div>
+
+            <div class="phone-option">
+                <img src="path/to/android-icon.png" alt="Android Phone" class="phone-option-icon">
+                <h4>Android Phone</h4>
+                <p>Your purchase may be subject to local taxes based on the billing information you provide.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back and Continue buttons -->
+    <button id="back-btn" class="nav-btn">Back</button>
+    <button id="continue-btn" class="nav-btn">Continue</button>
+</div>
+
+
+<!-- Page 5: Domain Verification -->
+<div id="DomVerification" class="page" style="display: none;">
+    <h2 class="page-title">
+        <img src="images/Ember_60X60.png" alt="Ember Icon" class="page-icon">
+        <span class="page-number">5. Domain Verification</span> ---------------------------------------> Out of 6
+    </h2>
+    <div class="product-box">
+        <h3><img src="images/Ember_60X60.png" alt="Ember Icon" class="page-icon">
+            Ember Professional <span class="plan-details">Plan details</span></h3>
+        <p>Create Your Domain</p>
+        <div class="domain-input-container">
+            <input type="text" placeholder="yourdomain" id="domain-input">
+            <span class="domain-extension">.embervoip.us</span>
+        </div>
+    </div>
+    <button id="back-btn" class="nav-btn">Back</button>
+    <button id="continue-btn" class="nav-btn">Continue</button>
+</div>
+
+<!-- Page 6: Checkout SignUp -->
+<div id="CheckoutSignUp" class="page" style="display: none;">
+    <h2 class="page-title">
+        <img src="images/Ember_60X60.png" alt="Ember Icon" class="page-icon">
+        <span class="page-number">6. Checkout Page</span> ---------------------------------------> Out of 6
+    </h2>
+
+    <div class="product-box">
+        <h3>Sign Up</h3>
+        <p class="subtext">You will be the owner of this account and receive full access to admin features.</p>
+        
+        <a href="#" id="signin-link">Have an account? <span class="signin-text">sign in</span></a>
+        
+        <div class="name-inputs">
+            <div class="name-input">
+                <input type="text" id="first-name" placeholder="First Name*">
+            </div>
+            <div class="name-input">
+                <input type="text" id="last-name" placeholder="Last Name*">
+            </div>
+        </div>
+    </div>
+
+    <!-- Back and Continue buttons -->
+    <button id="back-btn" class="nav-btn">Back</button>
+    <button id="continue-btn" class="nav-btn">Continue</button>
+</div>
+
+
+<!-- Page 7: Checkout Shipping Information -->
+<div id="CheckoutShipInfo" class="page" style="display: none;">
+    <h2 class="page-title">
+        <img src="images/Ember_60X60.png" alt="Ember Icon" class="page-icon">
+        <span class="page-number">6. Checkout Page</span> ---------------------------------------> Out of 6
+    </h2>
+
+    <div class="product-box">
+        <h3>Shipping Information</h3>
+        <p class="subtext">You will be the owner of this account and receive full access to admin features.</p>
+        
+        <a href="#" id="signin-link">Have an account? <span class="signin-text">sign in</span></a>
+        
+        <div class="shipping-inputs">
+            <div class="shipping-input">
+                <input type="text" id="street-number" placeholder="Street Number">
+            </div>
+            <div class="shipping-input">
+                <input type="text" id="street-address" placeholder="Street Address">
+            </div>
+            <div class="shipping-input">
+                <input type="text" id="address-line2" placeholder="Address Line 2">
+            </div>
+            <div class="shipping-input">
+                <input type="text" id="city" placeholder="City">
+            </div>
+            <div class="shipping-input">
+                <select id="state">
+                    <option value="WY">WY - Wyoming</option>
+                    <!-- Add more state options as needed -->
+                </select>
+            </div>
+            <div class="shipping-input">
+                <input type="text" id="zip-code" placeholder="Zip Code">
+            </div>
+        </div>
+    </div>
+
+    <!-- Back and Continue buttons -->
+    <button id="back-btn" class="nav-btn">Back</button>
+    <button id="continue-btn" class="nav-btn">Continue</button>
+</div>
+
+
+<!-- Page 8: Checkout Terms and Conditions -->
+<div id="CheckoutTerms" class="page" style="display: none;">
+    <h2 class="page-title">
+        <img src="images/Ember_60X60.png" alt="Ember Icon" class="page-icon">
+        <span class="page-number">6. Checkout Page</span> ---------------------------------------> Out of 6
+    </h2>
+
+    <div class="product-box">
+        <h3>Terms And Conditions</h3>
+        <p class="subtext">You will be the owner of this account and receive full access to admin features.</p>
+        
+        <div class="terms-section">
+            <a href="#" id="view-terms-link">View Terms and Conditions 
+                <img src="link-to-icon.png" alt="link icon" class="link-icon"> <!-- Add link icon if needed -->
+            </a>
+            <div class="accept-terms">
+                <input type="checkbox" id="terms-accepted">
+                <label for="terms-accepted" class="terms-label">Accepted</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back and Continue buttons -->
+    <button id="back-btn" class="nav-btn">Back</button>
+    <button id="continue-btn" class="nav-btn">Continue</button>
+</div>
+
+
+ <!-- Page 9: Checkout Payment Details -->
+<div id="CheckoutPay" class="page" style="display: none;">
+    <h2 class="page-title">
+        <img src="images/Ember_60X60.png" alt="Ember Icon" class="page-icon">
+        <span class="page-number">6. Checkout Page</span> ---------------------------------------> Out of 6
+    </h2>
+
+    <div class="product-box">
+        <h3>Payment Details</h3>
+        <p class="subtext">You will be the owner of this account and receive full access to admin features.</p>
+        
+        <div class="payment-inputs">
+            <div class="payment-input">
+                <input type="text" id="name-on-card" placeholder="Name on Card">
+            </div>
+            <div class="payment-input">
+                <input type="text" id="card-number" placeholder="Card Number">
+            </div>
+            <div class="payment-inputs-row">
+                <div class="payment-input">
+                    <input type="text" id="expiry-month" placeholder="Month">
+                </div>
+                <div class="payment-input">
+                    <input type="text" id="expiry-year" placeholder="Year">
+                </div>
+                <div class="payment-input">
+                    <input type="text" id="cvv" placeholder="CVV">
+                </div>
+            </div>
+            <!-- Placeholder for captcha -->
+            <div class="captcha-placeholder">
+                <input type="checkbox" id="captcha-check">
+                <label for="captcha-check">I'm not a robot</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back and Continue buttons -->
+    <button id="back-btn" class="nav-btn">Back</button>
+    <button id="continue-btn" class="nav-btn">Continue</button>
+</div>
+    </div>
 </body>
+
+<aside id="order-summary">
+    <h3>Order Summary</h3>
+    <div class="order-details">
+        <p>1 Item(s)</p>
+        <p>Ember Professional</p>
+        <p>Users (1) x $14.99 x 12 months</p>
+        <p>Pooled Minutes 1,000</p>
+        <p>Phone Numbers (DID) x1</p>
+        <p id="total">$275.88</p>
+    </div>
+
+    <div class="coupon-section">
+        <div class="coupon-code">
+            <span>PRELAUNCH100</span>
+            <button class="remove-btn">X</button>
+        </div>
+        <p>Discount Applied: -$179.88</p>
+        <p>Lifetime Promotion: -$18.12</p>
+        <p>Total Before Discounts: $275.88</p>
+        <p>Your Savings: -$198.00</p>
+        <p>Today's Total: $77.88</p>
+        <button id="pay-now">Pay Now</button>
+</aside>
+
 </html>

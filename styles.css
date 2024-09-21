@@ -9,6 +9,9 @@ body {
     font-family: 'Arial', sans-serif;
     background-color: #f4f4f4;
     color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Navigation Bar */
@@ -16,17 +19,16 @@ nav {
     width: 100%;
     background-color: white;
     color: white;
-    min-height: 80px; /* Set minimum height to control nav height */
     padding: 10px;
     display: flex;
     justify-content: space-between;
-    align-items: center; /* Ensures vertical alignment */
+    align-items: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow at the bottom */
 }
 
 #company-logo {
-    height: 200px; /* Increase the height of the logo */
-    width: auto;  /* Automatically adjust the width to maintain aspect ratio */
+    height: 200px; /* Height for the logo */
+    width: auto;  /* Maintain aspect ratio */
 }
 
 .nav-right {
@@ -41,18 +43,30 @@ nav {
     font-size: 20px;
 }
 
+/* Heading for Your Products */
+#products-heading {
+    font-size: 40px;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 10px;
+    text-align: left;
+    padding-top: 20px; /* Space between the heading and the nav bar */
+}
 
 /* Main Container */
 #main-container {
     width: 90%;
-    margin: 20px auto;
+    margin: 20px auto 0;
+    display: flex;
+    flex-direction: column; /* Stacks heading and product summary vertically */
 }
 
 /* Flex Container for Products and Order Summary */
 #products-summary-container {
     display: flex;
-    justify-content: space-between;
-    gap: 20px; /* Space between the two sections */
+    gap: 0px; /* No gap between the two sections */
+    flex-grow: 1;
+    position: relative; /* To allow for shadow at the merge point */
 }
 
 /* Content Area (Your Products Section) */
@@ -62,28 +76,81 @@ nav {
     border: 1px solid #ccc;
     padding: 20px;
     background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    border-radius: 8px 0 0 8px; /* Rounded corners on the left */
+    box-shadow: -2px 0px 8px rgba(0, 0, 0, 0.1); /* Shadow on the merging line */
 }
 
 /* Order Summary Section */
 #order-summary {
     width: 30%;
-    padding: 20px;
-    border: 1px solid #ccc;
     background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
     border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    height: fit-content;
 }
 
+#order-summary h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.order-details {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.order-details p {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.coupon-section {
+    margin-bottom: 20px;
+}
+
+.coupon-code {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.remove-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Updated Pay Now Button Styling */
 #pay-now {
     width: 100%;
     padding: 10px;
-    background-color: grey;
+    background-color: #FF6A12; /* Orange color */
     color: white;
     border: none;
-    cursor: not-allowed;
+    cursor: pointer;
     font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#pay-now:hover {
+    background-color: #cc550e; /* Slightly darker shade for hover effect */
+}
+
+/* Disabled Button Styling */
+button[disabled] {
+    background-color: #ccc;
+    cursor: not-allowed;
+    color: #666; /* Dimmed text */
 }
 
 /* User Selection Counter */
@@ -111,46 +178,249 @@ nav {
     background-color: #e0e0e0;
 }
 
-#user-count {
+#user-count, #minutes-count {
     width: 50px;
     text-align: center;
-    font-size: 16px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #FF6A12; /* Orange color */
     background-color: #fff;
 }
 
-/* Page Styles */
-.page input[type="text"], .page input[type="number"] {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
+/* Number of Users Page Styling */
+.page-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 20px;
+    text-align: left;
 }
 
-/* Phone Options */
-.phone-options {
+.page-number {
+    color: #FF6A12; /* Orange color */
+    font-weight: bold;
+}
+
+.product-box {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.product-box h3 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.plan-details {
+    color: #FF6A12;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.subtext {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.highlight {
+    color: #FF6A12; /* Orange color for emphasis */
+    font-weight: bold;
+}
+
+/* Subscription Options */
+.subscription-options {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
 }
 
-.phone-option-btn {
-    padding: 10px;
-    background-color: #f0f0f0;
+.option {
+    padding: 20px;
+    width: 45%;
     border: 1px solid #ccc;
-    border-radius: 4px;
-    cursor: pointer;
+    border-radius: 8px;
     text-align: center;
 }
 
-.phone-option-btn:hover {
+.option.disabled {
+    background-color: #f0f0f0;
+    color: #999;
+}
+
+.option.selected {
+    border: 2px solid #FF6A12;
+    color: black;
+}
+
+.option p {
+    margin: 5px 0;
+}
+
+.price {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.small-text {
+    font-size: 12px;
+    color: #666;
+}
+
+/* Domain Verification Page Styling */
+.domain-input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+#domain-input {
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.domain-extension {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 0 5px 5px 0;
+    font-size: 18px;
+    color: #333;
+}
+
+/* Styling specific to Phones Page */
+#Phones .product-box {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#Phones .product-box h3 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+#Phones .plan-details {
+    color: #FF6A12;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#Phones .subtext {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* Phone Number Counter */
+#Phones .user-selection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#Phones .user-selection button {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    flex: 1;
+}
+
+#Phones .user-selection button:hover {
     background-color: #e0e0e0;
 }
 
-/* Buttons */
+#Phones #phone-count {
+    width: 50px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #FF6A12; /* Orange color */
+    background-color: #fff;
+}
+
+/* Buy a New Number and Transfer Existing Number Options */
+#Phones .number-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+#Phones .number-option label {
+    font-size: 18px;
+    color: #333;
+}
+
+#Phones .orange-dot {
+    color: #FF6A12;
+    margin-left: 10px;
+    font-size: 24px;
+}
+
+#Phones .empty-dot {
+    color: #333;
+    font-size: 24px;
+}
+
+#Phones #change-number-link {
+    color: #FF6A12;
+    text-decoration: none;
+}
+
+#Phones #change-number-link:hover {
+    text-decoration: underline;
+}
+
+/* Input Fields for Primary and User Numbers */
+#Phones .number-inputs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+#Phones .number-input {
+    width: 48%;
+}
+
+#Phones .number-input label {
+    font-size: 14px;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+}
+
+#Phones .number-input input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* General Buttons for Continue and Back */
 button.nav-btn {
-    background-color: #FF6A12; /* Updated color */
+    background-color: #FF6A12;
     color: white;
     padding: 10px 20px;
     margin: 10px 5px 0 0;
@@ -162,24 +432,390 @@ button.nav-btn {
 }
 
 button.nav-btn:hover {
-    background-color: #cc550e; /* Slightly darker shade for hover effect */
+    background-color: #cc550e;
 }
 
-/* Disabled Button Styling */
-button[disabled] {
-    background-color: #ccc;
-    cursor: not-allowed;
+/* Phone Numbers Page Styling */
+#PhoneNumbers .product-box {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-/* Order Summary */
-#order-summary h3 {
+#PhoneNumbers .product-box h3 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+#PhoneNumbers .plan-details {
+    color: #FF6A12;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#PhoneNumbers .subtext {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* Phone Options Layout */
+#PhoneNumbers .phone-options {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+#PhoneNumbers .phone-option {
+    background-color: #f0f0f0;
+    padding: 20px;
+    width: 30%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+#PhoneNumbers .phone-option-icon {
+    max-width: 60px;
+    margin-bottom: 10px;
+}
+
+#PhoneNumbers .phone-option h4 {
     font-size: 18px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+}
+
+#PhoneNumbers .phone-option p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Back and Continue Button Styles */
+button.nav-btn {
+    background-color: #FF6A12;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px 5px 0 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button.nav-btn:hover {
+    background-color: #cc550e;
+}
+
+/* Checkout SignUp Page Styling */
+#CheckoutSignUp .product-box {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#CheckoutSignUp .product-box h3 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+#CheckoutSignUp .subtext {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+#CheckoutSignUp #signin-link {
+    text-align: right;
+    display: block;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #666;
+}
+
+#CheckoutSignUp .signin-text {
+    color: #FF6A12;
+    font-weight: bold;
+}
+
+#CheckoutSignUp .signin-text:hover {
+    text-decoration: underline;
+}
+
+#CheckoutSignUp .name-inputs {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+#CheckoutSignUp .name-input {
+    width: 48%;
+}
+
+#CheckoutSignUp .name-input input {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Back and Continue Button Styles */
+button.nav-btn {
+    background-color: #FF6A12;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px 5px 0 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button.nav-btn:hover {
+    background-color: #cc550e;
+}
+
+/* Checkout Shipping Information Page Styling */
+#CheckoutShipInfo .product-box {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#CheckoutShipInfo .product-box h3 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+#CheckoutShipInfo .subtext {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+#CheckoutShipInfo #signin-link {
+    text-align: right;
+    display: block;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #666;
+}
+
+#CheckoutShipInfo .signin-text {
+    color: #FF6A12;
+    font-weight: bold;
+}
+
+#CheckoutShipInfo .signin-text:hover {
+    text-decoration: underline;
+}
+
+/* Shipping Inputs Layout */
+.shipping-inputs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.shipping-input {
+    width: 100%;
+}
+
+.shipping-input input, .shipping-input select {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Back and Continue Button Styles */
+button.nav-btn {
+    background-color: #FF6A12;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px 5px 0 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button.nav-btn:hover {
+    background-color: #cc550e;
+}
+
+/* Checkout Terms and Conditions Page Styling */
+#CheckoutTerms .product-box {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#CheckoutTerms .product-box h3 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+#CheckoutTerms .subtext {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+#CheckoutTerms .terms-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#CheckoutTerms #view-terms-link {
+    color: #FF6A12;
+    text-decoration: none;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+#CheckoutTerms #view-terms-link .link-icon {
+    width: 16px;
+    height: 16px;
+    margin-left: 5px;
+}
+
+#CheckoutTerms #view-terms-link:hover {
+    text-decoration: underline;
+}
+
+#CheckoutTerms .accept-terms {
+    display: flex;
+    align-items: center;
+}
+
+#CheckoutTerms .terms-label {
+    margin-left: 10px;
+    font-size: 16px;
     color: #333;
 }
 
-#order-summary p {
-    font-size: 14px;
-    margin-bottom: 8px;
+#CheckoutTerms #terms-accepted {
+    width: 20px;
+    height: 20px;
+}
+
+/* Back and Continue Button Styles */
+button.nav-btn {
+    background-color: #FF6A12;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px 5px 0 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button.nav-btn:hover {
+    background-color: #cc550e;
+}
+
+/* Checkout Payment Details Page Styling */
+#CheckoutPay .product-box {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#CheckoutPay .product-box h3 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+#CheckoutPay .subtext {
     color: #666;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* Payment Inputs */
+#CheckoutPay .payment-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+#CheckoutPay .payment-input {
+    width: 100%;
+}
+
+#CheckoutPay .payment-input input {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Arial', sans-serif;
+}
+
+#CheckoutPay .payment-inputs-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+#CheckoutPay .captcha-placeholder {
+    margin-top: 20px;
+    text-align: left;
+}
+
+/* Back and Continue Button Styles */
+button.nav-btn {
+    background-color: #FF6A12;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px 5px 0 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button.nav-btn:hover {
+    background-color: #cc550e;
+}
+
+/* Styling for page icon */
+.page-icon {
+    width: 40px; /* Set width according to the image size */
+    height: auto; /* Maintain aspect ratio */
+    vertical-align: middle; /* Align image with the text */
+    margin-right: 10px; /* Space between the image and text */
 }
