@@ -27,7 +27,7 @@ nav {
 }
 
 #company-logo {
-    height: 200px; /* Height for the logo */
+    height: 150px; /* Height for the logo */
     width: auto;  /* Maintain aspect ratio */
 }
 
@@ -64,14 +64,13 @@ nav {
 /* Flex Container for Products and Order Summary */
 #products-summary-container {
     display: flex;
-    gap: 0px; /* No gap between the two sections */
-    flex-grow: 1;
-    position: relative; /* To allow for shadow at the merge point */
+    gap: 10px;
+
 }
 
 /* Content Area (Your Products Section) */
 #content-area {
-    width: 65%;
+    width: 70%;
     min-height: 400px;
     border: 1px solid #ccc;
     padding: 20px;
@@ -818,4 +817,65 @@ button.nav-btn:hover {
     height: auto; /* Maintain aspect ratio */
     vertical-align: middle; /* Align image with the text */
     margin-right: 10px; /* Space between the image and text */
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    #products-heading {
+        font-size: 24px;
+    }
+
+    #products-summary-container {
+        flex-direction: column; /* Stack the content area and order summary vertically */
+    }
+
+    #content-area, #order-summary {
+        width: 100%; /* Full width for both content and summary on mobile */
+        margin-bottom: 20px; /* Add space between the sections */
+    }
+
+    .nav-right a, #language-dropdown {
+        font-size: 14px;
+    }
+
+    #company-logo {
+        height: 40px; /* Adjust logo size for mobile */
+    }
+
+    .product-box {
+        padding: 20px; /* Smaller padding for product boxes */
+    }
+
+    h3 {
+        font-size: 24px;
+    }
+
+    #pay-now {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+    #products-heading {
+        font-size: 20px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    #pay-now {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    .product-box {
+        padding: 15px;
+    }
+
+    .user-selection {
+        width: 120px; /* Smaller width for selection */
+    }
 }
