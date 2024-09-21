@@ -866,6 +866,28 @@ button.nav-btn:hover {
         font-size: 20px;
     }
 
+    .price {
+        font-size: 18px;
+        line-height: 1.2; /* Make sure the price has some space */
+    }
+
+    .small-text {
+        font-size: 12px; /* Reduce the font size of the small text */
+        line-height: 1.2; /* Adjust the line height for better spacing */
+        word-wrap: break-word; /* Ensure the text breaks properly */
+    }
+
+    .subscription-options {
+        flex-direction: column; /* Stack the subscription options vertically */
+        gap: 10px; /* Add space between the stacked subscription options */
+    }
+
+    .option {
+        width: 100%; /* Make the option box full-width on mobile */
+        padding: 10px; /* Adjust padding for better fit */
+        font-size: 14px;
+    }
+
     #pay-now {
         font-size: 12px;
         padding: 6px;
